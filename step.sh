@@ -1,6 +1,12 @@
 #!/bin/bash
 set -ex
 
-pwd
-ls -la
+
+TMP_CURRENT_DIR="$( pwd )"
+THIS_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo $THIS_SCRIPT_DIR
+
+cd $THIS_SCRIPT_DIR
+
 java -cp demo.jar org.example.App $BITRISE_DEPLOY_DIR/json  $BITRISE_DEPLOY_DIR/json
